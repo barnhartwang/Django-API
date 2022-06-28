@@ -1,0 +1,10 @@
+<!--books/templates/books/book_list.html-->
+{%extends 'base.html' %}
+{% block main%}
+{% for book in object_list%}
+    <ul>
+        <li>{{book.title}}</li>
+        <li>{{book.subtitle}}</li>
+    </ul>
+{% endfor %}
+{% endblock main%}

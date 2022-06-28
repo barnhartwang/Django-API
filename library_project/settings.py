@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,8 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$5nuam()1qt-5%4h9#ccmz0+7ee63!yj0=a$@&)$7gbu)wk0k6'
-
+#SECRET_KEY = 'django-insecure-$5nuam()1qt-5%4h9#ccmz0+7ee63!yj0=a$@&)$7gbu)wk0k6'
+SECRET_KEY = 'q*6-%^9^b^&%1d^edba+w-9f&r)fbiqfsa6^)_lc^(07086uk#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -31,12 +32,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'books',
+    'book_api',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rest_framework',
+    
 ]
 
 MIDDLEWARE = [
@@ -54,7 +61,7 @@ ROOT_URLCONF = 'library_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'library_project/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
